@@ -8,20 +8,20 @@ export type FilePickerFile = {
   type: string;
   path: string;
   uri: string;
-}
+};
 
 export type FilePickerCancel = {
   didCancel: boolean;
-}
+};
 
 export type FilePickerError = {
   error: Error;
-}
+};
 
-export type FilePickerResult =
-  | FilePickerCancel
-  | FilePickerError
-  | FilePickerFile
+export type FilePickerResult = 
+  FilePickerCancel &
+  FilePickerError &
+  FilePickerFile;
 
 declare class FilePickerManager {
   public static showFilePicker(
