@@ -255,8 +255,11 @@ public class FilePickerModule extends ReactContextBaseJavaModule implements Acti
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
 
+        if (isExternalSkydriveResourceUri(uri)) {
+            //DONT DO ANYTHING?  THIS RETURNS THE PATH AS IS FOR ONEDRIVE
+        } 
         // DocumentProvider
-        if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
+        else if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
 
             // ExternalStorageProvider
             if (isExternalStorageDocument(uri)) {
