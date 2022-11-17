@@ -333,6 +333,14 @@ public class FilePickerModule extends ReactContextBaseJavaModule implements Acti
         return null;
     }
 
+     /**
+     * @param uri The Uri to check.
+     * @return Whether the Uri authority is MediaProvider.
+     */
+    public static boolean isExternalSkydriveResourceUri(Uri uri) {
+        return "com.microsoft.skydrive.content.external".equals(uri.getAuthority());
+    }
+    
     /**
      * @param uri The Uri to check.
      * @return Whether the Uri authority is ExternalStorageProvider.
